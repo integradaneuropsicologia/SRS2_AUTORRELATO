@@ -57,8 +57,8 @@
     <h1>SRS-2 — Questionário (Autorrelato)</h1>
     <p class="muted">
       Responda a todas as afirmações abaixo. As opções são:
-      <em>Não é verdade (1)</em>, <em>Algumas vezes é verdade (2)</em>,
-      <em>Muitas vezes é verdade (3)</em>, <em>Quase sempre é verdade (4)</em>.
+      <em>Não é verdade</em>, <em>Algumas vezes é verdade</em>,
+      <em>Muitas vezes é verdade</em>, <em>Quase sempre é verdade</em>.
     </p>
 
     <div id="pacInfo" class="grid-info" style="display:none;"></div>
@@ -206,10 +206,10 @@ const ITEMS = [
 "Eu me pego olhando fixo para o espaço."
 ];
 const CHOICES = [
-  {label:"Não é verdade", value:0},
-  {label:"Algumas vezes é verdade", value:1},
-  {label:"Muitas vezes é verdade", value:2},
-  {label:"Quase sempre é verdade", value:3},
+  {label:"Não é verdade", value:1},
+  {label:"Algumas vezes é verdade", value:2},
+  {label:"Muitas vezes é verdade", value:3},
+  {label:"Quase sempre é verdade", value:4},
 ];
 function renderQuestions(){
   const host = $("#qs"); host.innerHTML="";
