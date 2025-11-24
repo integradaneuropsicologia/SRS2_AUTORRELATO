@@ -76,10 +76,10 @@
 <script>
 /* ===== CONFIG ===== */
 const SHEETDB_BASE = "https://sheetdb.io/api/v1/8pmdh33s9fvy8";
-const SHEETS = { PATIENTS:"Patients", TOKENS:"LinkTokens", SCORES:"Scores_SRS2_HETERORRELATO" };
-const CODE = "SRS2_HETERORRELATO";
+const SHEETS = { PATIENTS:"Patients", TOKENS:"LinkTokens", SCORES:"Scores_SRS2_AUTORRELATO" };
+const CODE = "SRS2_AUTORRELATO";
 const PORTAL_URL = "https://integradaneuropsicologia.github.io/formularios/";
-const RELEASE_KEYS = ["SRS2_HETERORRELATO"];
+const RELEASE_KEYS = ["SRS2_AUTORRELATO"];
 
 /* ===== HELPERS ===== */
 const $ = s => document.querySelector(s);
@@ -247,7 +247,7 @@ let patient=null, tokenRow=null, CPF="";
 
     const doneKeys = RELEASE_KEYS.map(k => `${k}_FEITO`);
     const anyDoneFlag = doneKeys.some(k => String(patient[k]||"").trim().toLowerCase()==="sim");
-    const already = await sheetSearch(SHEETS.SCORES, { cpf: CPF, code: CODE, source:"heterorrelato" });
+    const already = await sheetSearch(SHEETS.SCORES, { cpf: CPF, code: CODE, source:"AUTORRELATO" });
     if(anyDoneFlag || (already && already.length)){
       setBox("#alert","Este formulário já foi respondido. Voltando ao portal…","ok");
       setTimeout(goPortalWithToken, 1200);
@@ -359,7 +359,7 @@ $("#form").addEventListener("submit", async (e)=>{
       token: qs("token"),
       cpf: patient.cpf,
       code: CODE,
-      source: "heterorrelato",
+      source: "AUTORRELATO",
       submitted_at: new Date().toISOString(),
       total: resultado.total,
       categoria: categoria_csv,
